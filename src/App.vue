@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <img width="25%" src="./assets/logo.png">
-    <HelloWorld msg="Hello Vue in CodeSandbox!" />
+    
+    <HelloWorld msg="barney was here" age="26"></HelloWorld>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
-
+import HelloWorld from "../components/HelloWorld";
 export default {
   name: "App",
   components: {
