@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header></Header>
-    <AddTodo></AddTodo>
+    <AddTodo v-on:add-todo="addTodo"></AddTodo>
     <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo"></Todos>
   </div>
 </template>
@@ -42,6 +42,19 @@ export default {
   methods: {
     deleteTodo(id) {
       this.todos = this.todos.filter(todo => todo.id !== id);
+    },
+    addTodo(todoString) {
+      //console.log("lets add a todo fam");
+
+      const newId = this.todos.length + 1;
+
+      this.todos.push({
+        id: newId,
+        title: "Todo " + newId + " " + todoString,
+        completed: false
+      });
+
+      console.log(this.todos);
     }
   }
 };

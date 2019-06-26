@@ -1,35 +1,41 @@
 <template>
   <div>
-      <form>
-          <input type="text" name="title" placeholder="Add Todo...">
-          <input type="submit" value="Submit" class="btn" @click="submitTodo">
-        </form>
-    </div>
+    <form>
+      <input type="text" name="title" placeholder="Add Todo..." v-model="todoEntry">
+      <input type="submit" value="Submit" class="btn" @click="$emit('add-todo', todoEntry)">
+    </form>
+  </div>
 </template>
 
 <script>
 export default {
   name: "AddTodo",
 
+  data() {
+    return {
+      todoEntry: "entry"
+    };
+  },
+
   methods: {
-    submitTodo() {
-      console.log("submitted")
+    getEntry() {
+      return this.todoEntry;
     }
   }
-}
+};
 </script>
 
 <style scoped>
-  form {
-    display: flex;
-  }
+form {
+  display: flex;
+}
 
-  input[type="text"] {
-    flex: 10;
-    padding: 5px;
-  }
+input[type="text"] {
+  flex: 10;
+  padding: 5px;
+}
 
-  input[type="submit"] {
-    flex: 2;
-  }
+input[type="submit"] {
+  flex: 2;
+}
 </style>
