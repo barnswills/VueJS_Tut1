@@ -2,14 +2,20 @@
   <div>
       <form>
           <input type="text" name="title" placeholder="Add Todo...">
-          <input type="submit" value="Submit" class="btn">
+          <input type="submit" value="Submit" class="btn" @click="submitTodo">
         </form>
     </div>
 </template>
 
 <script>
 export default {
-  name: "AddTodo"
+  name: "AddTodo",
+
+  methods: {
+    submitTodo() {
+      console.log("submitted")
+    }
+  }
 }
 </script>
 
