@@ -20,7 +20,8 @@ export default {
   methods: {
     getEntry() {
       return this.todoEntry;
-    }
+    },
+    test() { console.log("hello")}
   }
 };
 </script>
