@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <form>
-      <input type="text" name="title" placeholder="Add Todo..." v-model="todoEntry">
-      <input type="submit" value="Submit" class="btn" @click="$emit('add-todo', todoEntry)">
-    </form>
+  <div class="entry-container">
+    <input type="text" name="title" placeholder="Add Todo..." v-model="todoEntry">
+    <button class="add-button" @click="$emit('add-todo', todoEntry)">Add</button>
   </div>
 </template>
 
@@ -13,22 +11,28 @@ export default {
 
   data() {
     return {
-      todoEntry: "entry"
+      todoEntry: ""
     };
   },
 
   methods: {
     getEntry() {
       return this.todoEntry;
-    },
-    test() { console.log("hello")}
+    }
   }
 };
 </script>
 
 <style scoped>
-form {
+.entry-container {
   display: flex;
+  width: 100%;
+}
+
+.add-button {
+  width: 25%;
+  color: white;
+  background-color: black;
 }
 
 input[type="text"] {

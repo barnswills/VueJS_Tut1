@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <AddTodo v-on:add-todo="addTodo"></AddTodo>
-    <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo"></Todos>
+    <div class="todolist-container">
+      <Header></Header>
+      <AddTodo v-on:add-todo="addTodo"></AddTodo>
+      <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo"></Todos>
+    </div>
   </div>
 </template>
 
@@ -40,6 +42,9 @@ export default {
     };
   },
   methods: {
+    test() {
+      alert("test");
+    },
     deleteTodo(id) {
       this.todos = this.todos.filter(todo => todo.id !== id);
     },
@@ -50,7 +55,7 @@ export default {
 
       this.todos.push({
         id: newId,
-        title: "Todo " + newId + " " + todoString,
+        title: todoString,
         completed: false
       });
 
@@ -65,6 +70,11 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.todolist-container {
+  width: 65%;
+  margin: 15px;
 }
 
 body {
